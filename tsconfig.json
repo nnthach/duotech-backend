@@ -5,6 +5,8 @@
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
 
+    "paths": { "@/*": ["./src/*"] },
+
     "strict": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,

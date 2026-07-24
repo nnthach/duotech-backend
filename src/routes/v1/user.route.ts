@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
+import { getUsers } from '@/controllers/user.controller.js';
+import { asyncHandler } from '@/lib/async-handler.js';
+
 export const userRouter = Router();
 
-// Health check — dùng cho CI/CD blue-green deploy.
-userRouter.get('/', (_req, res) => {
-  res.status(200).json({ status: 'ok user' });
-});
+userRouter.get('/', asyncHandler(getUsers));
