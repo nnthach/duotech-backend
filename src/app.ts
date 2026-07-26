@@ -1,13 +1,18 @@
 import express, { type Express } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
+import { connectDatabase } from './config/db.js';
 import { swaggerSpec } from './config/swagger.js';
+import { logger } from './lib/logger.js';
 import { errorHandler } from './middlewares/error-handler.js';
 import { notFound } from './middlewares/not-found.js';
 import { healthRouter } from './routes/health.route.js';
 import { v1Router } from './routes/v1/index.js';
 
-export function createApp(): Express {
+export async function createApp(): Promise<Express> {
+  await connectDatabase();
+  logger.info('Kết nối PostgreSQL thành công');
+
   const app = express();
 
   app.use(express.json());

@@ -26,6 +26,8 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    environment:
+      DATABASE_HOST: db
     ports:
       - '${PORT}:${PORT}'
     volumes:
