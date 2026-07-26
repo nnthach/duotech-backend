@@ -80,16 +80,12 @@
         "users_user_uuid_unique": {
           "name": "users_user_uuid_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_uuid"
-          ]
+          "columns": ["user_uuid"]
         },
         "users_user_email_unique": {
           "name": "users_user_email_unique",
           "nullsNotDistinct": false,
-          "columns": [
-            "user_email"
-          ]
+          "columns": ["user_email"]
         }
       },
       "policies": {},
