@@ -1,0 +1,10 @@
+import { z } from 'zod';
+
+export { CreateUserSchema as RegisterSchema } from '@/validations/user.validation.js';
+export type { CreateUserInput as RegisterInput } from '@/validations/user.validation.js';
+
+export const LoginSchema = z.object({
+  userEmail: z.string().email(),
+  userPassword: z.string().min(1),
+});
+export type LoginInput = z.infer<typeof LoginSchema>;

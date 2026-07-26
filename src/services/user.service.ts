@@ -8,7 +8,7 @@ import type { CreateUserInput, UpdateUserInput } from '@/validations/user.valida
 
 export type PublicUser = Omit<User, 'userPassword'>;
 
-function toPublicUser(user: User): PublicUser {
+export function toPublicUser(user: User): PublicUser {
   const { userPassword: _userPassword, ...publicUser } = user;
   return publicUser;
 }
