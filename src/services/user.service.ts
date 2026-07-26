@@ -6,10 +6,10 @@ import { ConflictError, NotFoundError } from '@/lib/errors.js';
 import { userRepository } from '@/repositories/user.repository.js';
 import type { CreateUserInput, UpdateUserInput } from '@/validations/user.validation.js';
 
-export type PublicUser = Omit<User, 'userPassword'>;
+export type PublicUser = Omit<User, 'userPassword' | 'userRefreshToken'>;
 
-function toPublicUser(user: User): PublicUser {
-  const { userPassword: _userPassword, ...publicUser } = user;
+export function toPublicUser(user: User): PublicUser {
+  const { userPassword: _userPassword, userRefreshToken: _userRefreshToken, ...publicUser } = user;
   return publicUser;
 }
 

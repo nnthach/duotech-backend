@@ -21,3 +21,10 @@ export class ConflictError extends AppError {
     this.name = 'ConflictError';
   }
 }
+
+export class UnauthorizedError extends AppError {
+  constructor(message = 'Email hoặc mật khẩu không đúng') {
+    super(message, 401);
+    this.name = 'UnauthorizedError';
+  }
+}
