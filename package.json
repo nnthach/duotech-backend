@@ -20,6 +20,7 @@
     "db:studio": "node --env-file=.env node_modules/.bin/drizzle-kit studio"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
     "drizzle-orm": "^0.45.2",
     "express": "^4.21.2",
     "pg": "^8.22.0",
