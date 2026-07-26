@@ -1,3 +1,5 @@
+import { createHash } from 'node:crypto';
+
 import jwt, { type SignOptions } from 'jsonwebtoken';
 
 import { env } from '@/config/env.js';
@@ -10,6 +12,15 @@ export interface AccessTokenPayload {
 export function signAccessToken(payload: AccessTokenPayload): string {
   const options: SignOptions = { expiresIn: env.JWT_EXPIRES_IN as SignOptions['expiresIn'] };
   return jwt.sign(payload, env.JWT_SECRET, options);
+}
+
+export function signRefreshToken(payload: AccessTokenPayload): string {
+  const options: SignOptions = { expiresIn: env.JWT_REFRESH_EXPIRES_IN as SignOptions['expiresIn'] };
+  return jwt.sign(payload, env.JWT_SECRET, options);
+}
+
+export function hashToken(token: string): string {
+  return createHash('sha256').update(token).digest('hex');
 }
 
 export function verifyAccessToken(token: string): AccessTokenPayload {

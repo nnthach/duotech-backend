@@ -1,6 +1,6 @@
 import { Router } from 'express';
 
-import { login, register } from '@/controllers/auth.controller.js';
+import { login, refresh, register } from '@/controllers/auth.controller.js';
 import { asyncHandler } from '@/lib/async-handler.js';
 
 export const authRouter = Router();
@@ -89,3 +89,29 @@ authRouter.post('/register', asyncHandler(register));
  *         description: Email hoặc mật khẩu không đúng.
  */
 authRouter.post('/login', asyncHandler(login));
+
+/**
+ * @openapi
+ * /api/v1/auth/refresh-token:
+ *   post:
+ *     summary: Cấp lại access token + refresh token mới (rotate)
+ *     tags: [Auth]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [refreshToken]
+ *             properties:
+ *               refreshToken:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Access token + refresh token mới.
+ *       400:
+ *         description: Dữ liệu không hợp lệ.
+ *       401:
+ *         description: Refresh token không hợp lệ, đã hết hạn, hoặc đã bị thay bằng token mới hơn.
+ */
+authRouter.post('/refresh-token', asyncHandler(refresh));
