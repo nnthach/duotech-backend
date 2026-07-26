@@ -1,6 +1,6 @@
 import { type NextFunction, type Request, type Response } from 'express';
 
-import { logger } from '../lib/logger.js';
+import { logger } from '@/lib/logger.js';
 
 // Error handler tập trung — mọi lỗi throw ra đều rơi vào đây.
 export function errorHandler(
