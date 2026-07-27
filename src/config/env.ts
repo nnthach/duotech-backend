@@ -5,6 +5,7 @@ import { z } from 'zod';
 const EnvSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
   PORT: z.coerce.number().default(3000),
+  APP_URL: z.string().default('http://localhost:3000'),
 
   // DATABASE_HOST khác nhau giữa local ('localhost') và trong Docker network ('db').
   DATABASE_HOST: z.string().default('localhost'),
