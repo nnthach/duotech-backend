@@ -13,7 +13,7 @@ const options: swaggerJsdoc.Options = {
       version: '0.1.0',
       description: 'API docs for user-authenticate service',
     },
-    servers: [{ url: `http://localhost:${env.PORT}` }],
+    servers: [{ url: env.APP_URL }],
   },
   apis: isTs ? ['src/routes/**/*.route.ts'] : ['dist/routes/**/*.route.js'],
 };
