@@ -9,7 +9,7 @@ import {
 
 export async function getUsers(_req: Request, res: Response): Promise<void> {
   const users = await userService.list();
-  res.status(200).json({ message: 'get user list success', data: users });
+  res.status(200).json({ message: 'get user list success alo alo', data: users });
 }
 
 export async function getUserById(req: Request, res: Response): Promise<void> {
