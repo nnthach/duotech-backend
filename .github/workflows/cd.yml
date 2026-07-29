@@ -17,6 +17,6 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
 
           script: |
-            cd /home/deploy/duotech-backend
+            cd /home/deploy/apps/duotech-backend
             git pull origin main
             docker compose up -d --build
