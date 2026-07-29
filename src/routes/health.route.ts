@@ -22,5 +22,5 @@ export const healthRouter = Router();
  *                   example: ok
  */
 healthRouter.get('/', (_req, res) => {
-  res.status(200).json({ status: 'ok' });
+  res.status(200).json({ status: 'ok healthy bro' });
 });
